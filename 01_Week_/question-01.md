@@ -109,6 +109,6 @@ GROUP BY customer_id;
 
 | customer\_id | total\_amount\_spent |
 | :--- | :--- |
-| B | $74 |
-| C | $36 |
-| A | $76 |
+| B | 74 |
+| C | 36 |
+| A | 76 |
