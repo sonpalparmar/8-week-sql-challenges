@@ -101,7 +101,7 @@ Excellent, we got the data we need.
 Maybe polish it slightly by prefixing the numbers with a `$` and naming the column to something better?
 
 ```sql
-SELECT customer_id, '$' || SUM(price) as total_amount_spent
+SELECT customer_id, SUM(price) as total_amount_spent
 FROM sales
 INNER JOIN menu on sales.product_id = menu.product_id
 GROUP BY customer_id;
