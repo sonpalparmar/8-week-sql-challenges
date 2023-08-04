@@ -1,6 +1,6 @@
 # Question
 
-Which item was the most popular for each customer?
+Which item was the most popular for each customer ?
 
 ## Solution
 
