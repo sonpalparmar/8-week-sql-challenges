@@ -26,7 +26,7 @@ WHERE rank = 1;
 
 ## Walkthrough
 
-Let's start by asking a simpler question.
+Let's start by asking a simpler question..
 
 What was the first item from the menu purchased by customer `B`?
 
