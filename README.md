@@ -1,121 +1,72 @@
-"# 8-week-sql-challenges" 
-Introduction
-Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
+# Danny's Diner Case Study
 
-Danny’s Diner is in need of your assistance to help the restaurant stay afloat - the restaurant has captured some very basic data from their few months of operation but have no idea how to use their data to help them run the business.
+## Introduction
 
-Problem Statement
-Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
+Danny seriously loves Japanese food, so in the beginning of 2021, he decided to open up a cute little restaurant named Danny's Diner that sells his three favorite foods: sushi, curry, and ramen.
 
-He plans on using these insights to help him decide whether he should expand the existing customer loyalty program - additionally he needs help to generate some basic datasets so his team can easily inspect the data without needing to use SQL.
+Danny's Diner needs assistance to utilize the data they've collected to help run the business effectively. They are looking for insights into customer behavior, spending patterns, and menu preferences. This information will help Danny enhance customer experience and make informed decisions, including whether to expand the customer loyalty program.
 
-Danny has provided you with a sample of his overall customer data due to privacy issues - but he hopes that these examples are enough for you to write fully functioning SQL queries to help him answer his questions!
+## Problem Statement
 
-Danny has shared with you 3 key datasets for this case study:
+Danny wants to use the data to answer several questions about his customers' visiting patterns, expenditure, and favorite menu items. By gaining insights into customer behavior, Danny aims to improve personalized experiences for loyal customers.
 
-sales
-menu
-members
-You can inspect the entity relationship diagram and example data below.
+This case study provides three key datasets:
 
-Entity Relationship Diagram
+- `sales`: Captures customer purchases with corresponding order dates and product IDs.
+- `menu`: Maps product IDs to product names and prices.
+- `members`: Captures the join dates of customers who joined the loyalty program.
 
-Example Datasets
-All datasets exist within the dannys_diner database schema - be sure to include this reference within your SQL scripts as you start exploring the data and answering the case study questions.
+## Case Study Questions
 
-Table 1: sales
-The sales table captures all customer_id level purchases with an corresponding order_date and product_id information for when and what menu items were ordered.
+The case study involves solving a series of questions using SQL. Each question can be answered with a single SQL statement:
 
-customer_id	order_date	product_id
-A	2021-01-01	1
-A	2021-01-01	2
-A	2021-01-07	2
-A	2021-01-10	3
-A	2021-01-11	3
-A	2021-01-11	3
-B	2021-01-01	2
-B	2021-01-02	2
-B	2021-01-04	1
-B	2021-01-11	1
-B	2021-01-16	3
-B	2021-02-01	3
-C	2021-01-01	3
-C	2021-01-01	3
-C	2021-01-07	3
-Table 2: menu
-The menu table maps the product_id to the actual product_name and price of each menu item.
+1. What is the total amount each customer spent at the restaurant?
+2. How many days has each customer visited the restaurant?
+3. What was the first item from the menu purchased by each customer?
+4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+5. Which item was the most popular for each customer?
+6. Which item was purchased first by the customer after they became a member?
+7. Which item was purchased just before the customer became a member?
+8. What is the total items and amount spent for each member before they became a member?
+9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier, how many points would each customer have?
+10. In the first week after a customer joins the program, how many points do customer A and B have at the end of January?
 
-product_id	product_name	price
-1	sushi	10
-2	curry	15
-3	ramen	12
-Table 3: members
-The final members table captures the join_date when a customer_id joined the beta version of the Danny’s Diner loyalty program.
+## Interactive SQL Session
 
-customer_id	join_date
-A	2021-01-07
-B	2021-01-09
-Interactive SQL Session
-You can use the embedded DB Fiddle below to easily access these example datasets - this interactive session has everything you need to start solving these questions using SQL.
+You can explore and solve the case study questions interactively using the provided example datasets and an SQL editor. The datasets are available in the `dannys_diner` schema.
 
-You can click on the Edit on DB Fiddle link on the top right hand corner of the embedded session below and it will take you to a fully functional SQL editor where you can write your own queries to analyse the data.
+You can use the [DB Fiddle SQL Editor](https://www.db-fiddle.com/f/ix3Zv9sKSGXszpG5ZQF2DS/0) to write and test your SQL queries.
 
-You can feel free to choose any SQL dialect you’d like to use, the existing Fiddle is using PostgreSQL 13 as default.
+## Bonus Questions
 
-Serious SQL students have access to a dedicated SQL script in the 8 Week SQL Challenge section of the course which they can use to generate relevant temporary tables like we’ve done throughout the entire course!
+The case study includes bonus questions related to creating data tables for quick insights without the need for SQL joins.
+
+### Recreate Table Output
+
+| customer_id | order_date | product_name | price | member |
+|-------------|------------|--------------|-------|--------|
+| A           | 2021-01-01 | curry        | 15    | N      |
+| A           | 2021-01-01 | sushi        | 10    | N      |
+| A           | 2021-01-07 | curry        | 15    | Y      |
+| A           | 2021-01-10 | ramen        | 12    | Y      |
+| A           | 2021-01-11 | ramen        | 12    | Y      |
+| A           | 2021-01-11 | ramen        | 12    | Y      |
+| ...         | ...        | ...          | ...   | ...    |
 
 
-Case Study Questions
-Each of the following case study questions can be answered using a single SQL statement:
+### Rank All The Things
 
-What is the total amount each customer spent at the restaurant?
-How many days has each customer visited the restaurant?
-What was the first item from the menu purchased by each customer?
-What is the most purchased item on the menu and how many times was it purchased by all customers?
-Which item was the most popular for each customer?
-Which item was purchased first by the customer after they became a member?
-Which item was purchased just before the customer became a member?
-What is the total items and amount spent for each member before they became a member?
-If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
-In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
-Bonus Questions
-Join All The Things
-The following questions are related creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL.
+Generate a ranking table for customer products:
 
-Recreate the following table output using the available data:
+| customer_id | order_date | product_name | price | member | ranking |
+|-------------|------------|--------------|-------|--------|---------|
+| A           | 2021-01-01 | curry        | 15    | N      | null    |
+| A           | 2021-01-01 | sushi        | 10    | N      | null    |
+| A           | 2021-01-07 | curry        | 15    | Y      | 1       |
+| A           | 2021-01-10 | ramen        | 12    | Y      | 2       |
+| A           | 2021-01-11 | ramen        | 12    | Y      | 3       |
+| A           | 2021-01-11 | ramen        | 12    | Y      | 3       |
+| ...         | ...        | ...          | ...   | ...    | ...     |
 
-customer_id	order_date	product_name	price	member
-A	2021-01-01	curry	15	N
-A	2021-01-01	sushi	10	N
-A	2021-01-07	curry	15	Y
-A	2021-01-10	ramen	12	Y
-A	2021-01-11	ramen	12	Y
-A	2021-01-11	ramen	12	Y
-B	2021-01-01	curry	15	N
-B	2021-01-02	curry	15	N
-B	2021-01-04	sushi	10	N
-B	2021-01-11	sushi	10	Y
-B	2021-01-16	ramen	12	Y
-B	2021-02-01	ramen	12	Y
-C	2021-01-01	ramen	12	N
-C	2021-01-01	ramen	12	N
-C	2021-01-07	ramen	12	N
-Rank All The Things
-Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
 
-customer_id	order_date	product_name	price	member	ranking
-A	2021-01-01	curry	15	N	null
-A	2021-01-01	sushi	10	N	null
-A	2021-01-07	curry	15	Y	1
-A	2021-01-10	ramen	12	Y	2
-A	2021-01-11	ramen	12	Y	3
-A	2021-01-11	ramen	12	Y	3
-B	2021-01-01	curry	15	N	null
-B	2021-01-02	curry	15	N	null
-B	2021-01-04	sushi	10	N	null
-B	2021-01-11	sushi	10	Y	1
-B	2021-01-16	ramen	12	Y	2
-B	2021-02-01	ramen	12	Y	3
-C	2021-01-01	ramen	12	N	null
-C	2021-01-01	ramen	12	N	null
-C	2021-01-07	ramen	12	N	null
+
