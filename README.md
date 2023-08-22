@@ -41,7 +41,8 @@ You can use the [DB Fiddle SQL Editor](https://www.db-fiddle.com/f/ix3Zv9sKSGXsz
 
 The case study includes bonus questions related to creating data tables for quick insights without the need for SQL joins.
 
-### Recreate Table Output
+### Join All The Things
+Recreate the following table output using the available data:
 
 | customer_id | order_date | product_name | price | member |
 |-------------|------------|--------------|-------|--------|
