@@ -1,4 +1,4 @@
----Danny's Diner Schema------
+---Danny's Diner Schema-------
 CREATE SCHEMA dannys_diner;
 SET search_path = dannys_diner;
 
