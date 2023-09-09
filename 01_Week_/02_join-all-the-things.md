@@ -1,6 +1,6 @@
 # Join All The Things
 
-The following questions are related to creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL
+The following questions are related to creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL.
 
 Recreate the following table output using the available data:
 
