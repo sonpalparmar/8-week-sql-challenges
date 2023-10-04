@@ -65,7 +65,7 @@ SELECT
     customer_id, 
     product_id, 
     num_of_purchases,
-    DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY num_of_purchases DESC) AS rank
+    DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY num_of_purchases DESC) AS rank1
 FROM number_of_purchases_per_customer_and_product;
 ```
 
@@ -92,13 +92,13 @@ purchases_ranked_by_customer AS (
         customer_id, 
         product_id, 
         num_of_purchases,
-        DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY num_of_purchases DESC) AS rank
+        DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY num_of_purchases DESC) AS rank1
     FROM number_of_purchases_per_customer_and_product
 )
 SELECT customer_id, menu.product_id, menu.product_name, num_of_purchases
 FROM purchases_ranked_by_customer
 INNER JOIN menu ON menu.product_id = purchases_ranked_by_customer.product_id
-WHERE rank = 1;
+WHERE rank1 = 1;
 ```
 
 | customer\_id | product\_id | product\_name | num\_of\_purchases |
